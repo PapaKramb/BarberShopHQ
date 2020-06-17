@@ -62,6 +62,11 @@ post '/contacts' do
 	end
 end
 
+get '/barbers' do
+	@barbers = Barber.order('created_at DESC')
+	erb :barbers
+end
+
 get '/barber/:id' do
 	@barber = Barber.find(params[:id])
 	erb :barber
